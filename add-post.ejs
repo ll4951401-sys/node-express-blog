@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Додати пост</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f9; }
+    nav { margin-bottom: 20px; }
+    nav a { margin-right: 15px; text-decoration: none; color: #007bff; font-weight: bold; }
+    form { background: #fff; padding: 20px; border-radius: 8px; max-width: 400px; }
+    input { width: 100%; padding: 8px; margin: 8px 0 16px 0; box-sizing: border-box; }
+    button { background-color: #28a745; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/">Головна</a>
+    <a href="/posts">Усі пости</a>
+    <a href="/add-post">Додати пост</a>
+  </nav>
+  <h1>Створити новий пост</h1>
+  <form action="/add-post" method="POST">
+    <label>Заголовок (Title):</label>
+    <input type="text" name="title" required>
+    <label>Автор (Author):</label>
+    <input type="text" name="author" required>
+    <button type="submit">Зберегти пост</button>
+  </form>
+</body>
+</html>
