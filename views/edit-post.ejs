@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Редагувати пост</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f9; }
+    nav { margin-bottom: 20px; }
+    nav a { margin-right: 15px; text-decoration: none; color: #007bff; font-weight: bold; }
+    form { background: #fff; padding: 20px; border-radius: 8px; max-width: 450px; }
+    input, textarea { width: 100%; padding: 8px; margin: 8px 0 16px 0; box-sizing: border-box; font-family: inherit; }
+    button { background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/">Головна</a>
+    <a href="/posts">Усі пости</a>
+    <a href="/add-post">Додати пост</a>
+  </nav>
+  <h1>Редагувати пост</h1>
+  <form action="/edit/<%= post.id %>" method="POST">
+    <label>Заголовок (Title):</label>
+    <input type="text" name="title" value="<%= post.title %>" required>
+
+    <label>Опис (Description):</label>
+    <textarea name="description" rows="4" required><%= post.description %></textarea>
+
+    <label>Автор (Author):</label>
+    <input type="text" name="author" value="<%= post.author %>" required>
+
+    <button type="submit">Оновити пост</button>
+  </form>
+</body>
+</html>
