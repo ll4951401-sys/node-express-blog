@@ -7,7 +7,10 @@
     body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f9; }
     nav { margin-bottom: 20px; }
     nav a { margin-right: 15px; text-decoration: none; color: #007bff; font-weight: bold; }
-    .post-card { background: white; padding: 15px; margin-bottom: 10px; border-left: 4px solid #007bff; border-radius: 4px; }
+    .post-card { background: white; padding: 15px 20px; margin-bottom: 12px; border-left: 4px solid #007bff; border-radius: 4px; }
+    .actions { margin-top: 10px; display: flex; gap: 10px; align-items: center; }
+    .btn-edit { background: #ffc107; color: #000; padding: 6px 12px; text-decoration: none; border-radius: 4px; font-size: 14px; }
+    .btn-delete { background: #dc3545; color: #fff; padding: 6px 12px; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; }
   </style>
 </head>
 <body>
@@ -21,7 +24,14 @@
     <% posts.forEach(post => { %>
       <div class="post-card">
         <h3><%= post.title %></h3>
-        <p><strong>Автор:</strong> <%= post.author %></p>
+        <p><%= post.description %></p>
+        <p><small><strong>Автор:</strong> <%= post.author %></small></p>
+        <div class="actions">
+          <a href="/edit/<%= post.id %>" class="btn-edit">Редагувати</a>
+          <form action="/delete/<%= post.id %>" method="POST" style="margin:0;">
+            <button type="submit" class="btn-delete">Видалити</button>
+          </form>
+        </div>
       </div>
     <% }) %>
   <% } else { %>
