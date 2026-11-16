@@ -1,8 +1,12 @@
-let mongoose = require("mongoose");
-let Schema = mongoose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-let postSchema = new Schema({
+const postSchema = new Schema({
   title: {
+    type: String,
+    required: true,
+  },
+  description: {
     type: String,
     required: true,
   },
@@ -12,5 +16,5 @@ let postSchema = new Schema({
   },
 });
 
-let postModel = mongoose.model("postModel", postSchema);
+const postModel = mongoose.model("postModel", postSchema);
 module.exports = postModel;
